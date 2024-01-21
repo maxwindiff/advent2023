@@ -7,9 +7,11 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 file(GLOB_RECURSE ALL_SOURCE_FILES *.cpp *.h)
 
-add_custom_target(
-    format
-    COMMAND clang-format -i -style=file ${ALL_SOURCE_FILES}
+add_custom_target(format
+  COMMAND clang-format -i -style=file ${ALL_SOURCE_FILES}
 )
 
+add_subdirectory(lib/abseil-cpp)
+
 add_executable(day01 day01.cpp)
+target_link_libraries(day01 absl::strings absl::str_format)

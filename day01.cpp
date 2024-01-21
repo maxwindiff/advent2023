@@ -1,3 +1,5 @@
+#include "absl/strings/str_format.h"
+
 #include <fstream>
 #include <iostream>
 #include <string>
@@ -48,9 +50,9 @@ int part2(std::istream &&in) {
 
 int main() {
   for (auto f : {"data/day01a.txt", "data/day01b.txt", "data/day01.txt"}) {
-    std::cout << "=== " << f << " ===\n";
-    std::cout << "part1 = " << part1(std::ifstream(f)) << "\n";
-    std::cout << "part2 = " << part2(std::ifstream(f)) << "\n";
+    absl::PrintF("=== %s ===\n", f);
+    absl::PrintF("part1 = %d\n", part1(std::ifstream(f)));
+    absl::PrintF("part2 = %d\n", part2(std::ifstream(f)));
   }
   return 0;
 }
