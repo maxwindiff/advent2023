@@ -1,32 +1,27 @@
 #include <fstream>
-#include <string>
 #include <iostream>
+#include <string>
 #include <unordered_map>
 
-int part1(std::istream&& in) {
+int part1(std::istream &&in) {
   int ret = 0;
   std::string line;
   while (std::getline(in, line)) {
     size_t p1 = line.find_first_of("0123456789");
     size_t p2 = line.find_last_of("0123456789");
-    if (p1 == std::string::npos || p2 == std::string::npos) continue;
+    if (p1 == std::string::npos || p2 == std::string::npos)
+      continue;
     ret += (line[p1] - '0') * 10 + (line[p2] - '0');
   }
   return ret;
 }
 
-int part2(std::istream&& in) {
+int part2(std::istream &&in) {
   std::unordered_map<std::string, int> nums = {
-    {"zero", 0}, {"0", 0},
-    {"one", 1}, {"1", 1},
-    {"two", 2}, {"2", 2},
-    {"three", 3}, {"3", 3},
-    {"four", 4}, {"4", 4},
-    {"five", 5}, {"5", 5},
-    {"six", 6}, {"6", 6},
-    {"seven", 7}, {"7", 7},
-    {"eight", 8}, {"8", 8},
-    {"nine", 9}, {"9", 9},
+      {"zero", 0}, {"0", 0},     {"one", 1}, {"1", 1},    {"two", 2},
+      {"2", 2},    {"three", 3}, {"3", 3},   {"four", 4}, {"4", 4},
+      {"five", 5}, {"5", 5},     {"six", 6}, {"6", 6},    {"seven", 7},
+      {"7", 7},    {"eight", 8}, {"8", 8},   {"nine", 9}, {"9", 9},
   };
 
   int ret = 0;
@@ -34,7 +29,7 @@ int part2(std::istream&& in) {
   while (std::getline(in, line)) {
     size_t p1 = line.size(), p2 = 0;
     int n1, n2;
-    for (const auto& [str, num] : nums) {
+    for (const auto &[str, num] : nums) {
       size_t pos = line.find(str);
       if (pos != std::string::npos && pos < p1) {
         p1 = pos;

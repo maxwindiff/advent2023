@@ -5,4 +5,11 @@ project(advent2023)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
+file(GLOB_RECURSE ALL_SOURCE_FILES *.cpp *.h)
+
+add_custom_target(
+    format
+    COMMAND clang-format -i -style=file ${ALL_SOURCE_FILES}
+)
+
 add_executable(day01 day01.cpp)
