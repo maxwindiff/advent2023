@@ -15,3 +15,6 @@ add_subdirectory(lib/abseil-cpp)
 
 add_executable(day01 day01.cpp)
 target_link_libraries(day01 absl::strings absl::str_format)
+
+add_executable(day02 day02.cpp)
+target_link_libraries(day02 absl::strings absl::str_format)
