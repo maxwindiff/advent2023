@@ -18,3 +18,6 @@ target_link_libraries(day01 absl::strings absl::str_format)
 
 add_executable(day02 day02.cpp)
 target_link_libraries(day02 absl::strings absl::str_format)
+
+add_executable(day03 day03.cpp)
+target_link_libraries(day03 absl::strings absl::str_format)

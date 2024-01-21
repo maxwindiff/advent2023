@@ -5,6 +5,7 @@
 #include <regex>
 #include <string>
 #include <unordered_map>
+#include <vector>
 
 struct Cubes {
   int num;
