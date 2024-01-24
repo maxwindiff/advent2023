@@ -13,11 +13,11 @@ add_custom_target(format
 
 add_subdirectory(lib/abseil-cpp)
 
-add_executable(day01 day01.cpp)
-target_link_libraries(day01 absl::strings absl::str_format)
+function(add_day day)
+  add_executable(${day} ${day}.cpp)
+  target_link_libraries(${day} absl::strings absl::str_format)
+endfunction()
 
-add_executable(day02 day02.cpp)
-target_link_libraries(day02 absl::strings absl::str_format)
-
-add_executable(day03 day03.cpp)
-target_link_libraries(day03 absl::strings absl::str_format)
+add_day(day01)
+add_day(day02)
+add_day(day03)
